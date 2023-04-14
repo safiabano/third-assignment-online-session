@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <title>Movie Recommendations</title>
+  <style>
+    /* Add some basic styling to the form */
+    form {
+      max-width: 300px;
+      margin: 0 auto;
+    }
+    label, input {
+      display: block;
+      margin-bottom: 10px;
+    }
+    button {
+      display: block;
+      margin-top: 10px;
+    }
+  </style>
+
+  <title>Movie Preferences</title>
+</head>
+<body>
+  <h1>Movie Preferences</h1>
+  <form id="movieForm">
+    <label for="genreSelect">Genre:</label>
+    <select id="genreSelect">
+      <option value="action">Action</option>
+      <option value="comedy">Comedy</option>
+      <option value="drama">Drama</option>
+      <option value="fantasy">Fantasy</option>
+      <!-- Add more genre options as needed -->
+    </select><br><br>
+    <label for="ratingInput">Rating:</label>
+    <input type="number" id="ratingInput" min="1" max="10"><br><br>
+    <label for="yearInput">Release Year:</label>
+    <input type="number" id="yearInput" min="1900" max="2023"><br><br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    document.getElementById("movieForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      // Get user inputs
+      var genre = document.getElementById("genreSelect").value;
+      var rating = document.getElementById("ratingInput").value;
+      var year = document.getElementById("yearInput").value;
+      // Use the user inputs to filter movies
+      // You can implement your filtering logic here
+      // For example, you can send the values to a backend server for processing
+      console.log("Genre: " + genre);
+      console.log("Rating: " + rating);
+      console.log("Release Year: " + year);
+      // You can update the UI with the filtered results or perform other actions
+    });
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Movie Recommendations</title>
+  <style>
+    /* Add some basic styling to the form */
+    form {
+      max-width: 300px;
+      margin: 0 auto;
+    }
+    label, input {
+      display: block;
+      margin-bottom: 10px;
+    }
+    button {
+      display: block;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Movie Recommendations</h1>
+  <form id="movieForm">
+    <label for="genreSelect">Genre:</label>
+    <select id="genreSelect">
+      <option value="">-- Select a genre --</option>
+      <option value="action">Action</option>
+      <option value="comedy">Comedy</option>
+      <option value="drama">Drama</option>
+      <option value="fantasy">Fantasy</option>
+      <!-- Add more genre options as needed -->
+    </select>
+    <label for="ratingInput">Rating:</label>
+    <input type="number" id="ratingInput" min="1" max="10">
+    <label for="yearInput">Release Year:</label>
+    <input type="number" id="yearInput" min="1900" max="2023">
+    <button type="button" onclick="getRecommendations()">Get Recommendations</button>
+  </form>
+  <div id="recommendationsContainer">
+    <h2>Recommendations:</h2>
+    <ul id="recommendationsList"></ul>
+  </div>
+
+  <script>
+    function getRecommendations() {
+      // Get user inputs
+      var genre = document.getElementById("genreSelect").value;
+      var rating = document.getElementById("ratingInput").value;
+      var year = document.getElementById("yearInput").value;
+      
+      // Call a function to filter movies based on user inputs
+      var filteredMovies = filterMovies(genre, rating, year);
+      
+      // Call a function to display movie recommendations on the UI
+      displayRecommendations(filteredMovies);
+    }
+
+    function filterMovies(genre, rating, year) {
+      // Implement your filtering logic here
+      // You can use the genre, rating, and year values to filter a list of movies
+      // For demonstration purposes, we'll just return some dummy data
+      var movies = [
+        { title: "Movie 1", genre: "action", rating: 8, year: 2010 },
+        { title: "Movie 2", genre: "comedy", rating: 7, year: 2015 },
+        { title: "Movie 3", genre: "drama", rating: 9, year: 2005 }
+      ];
+      return movies.filter(function(movie) {
+        return movie.genre === genre && movie.rating >= rating && movie.year >= year;
+      });
+    }
+
+    function displayRecommendations(movies) {
+      var recommendationsList = document.getElementById("recommendationsList");
+      recommendationsList.innerHTML = ""; // Clear previous recommendations
+      
+      // Loop through the filtered movies and add them as list items
+      movies.forEach(function(movie) {
+        var li = document.createElement("li");
+        li.textContent = movie.title;
+        recommendationsList.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+  
+  <h1>Movie Recommendations</h1>
+  <form id="movieForm">
+    <label for="genreSelect">Genre:</label>
+    <select id="genreSelect">
+      <option value="">-- Select a genre --</option>
+      <option value="action">Action</option>
+      <option value="comedy">Comedy</option>
+      <option value="drama">Drama</option>
+      <option value="fantasy">Fantasy</option>
+      <!-- Add more genre options as needed -->
+    </select>
+    <label for="ratingInput">Rating:</label>
+    <input type="number" id="ratingInput" min="1" max="10">
+    <label for="yearInput">Release Year:</label>
+    <input type="number" id="yearInput" min="1900" max="2023">
+    <button type="button" onclick="getRecommendations()">Get Recommendations</button>
+  </form>
+  <div id="recommendationsContainer">
+    <h2>Recommendations:</h2>
+    <ul id="recommendationsList"></ul>
+  </div>
+
+  <script>
+    function getRecommendations() {
+      // Get user inputs
+      var genre = document.getElementById("genreSelect").value;
+      var rating = document.getElementById("ratingInput").value;
+      var year = document.getElementById("yearInput").value;
+      
+      // Call a function to filter movies based on user inputs
+      var filteredMovies = filterMovies(genre, rating, year);
+      
+      // Call a function to display movie recommendations on the UI
+      displayRecommendations(filteredMovies);
+    }
+
+    function filterMovies(genre, rating, year) {
+      // Implement your filtering logic here
+      // You can use the genre, rating, and year values to filter a list of movies
+      // For demonstration purposes, we'll just return some dummy data
+      var movies = [
+        { title: "Movie 1", genre: "action", rating: 8, year: 2010 },
+        { title: "Movie 2", genre: "comedy", rating: 7, year: 2015 },
+        { title: "Movie 3", genre: "drama", rating: 9, year: 2005 }
+      ];
+      return movies.filter(function(movie) {
+        return movie.genre === genre && movie.rating >= rating && movie.year >= year;
+      });
+    }
+
+    function displayRecommendations(movies) {
+      var recommendationsList = document.getElementById("recommendationsList");
+      recommendationsList.innerHTML = ""; // Clear previous recommendations
+      
+      // Loop through the filtered movies and add them as list items
+      movies.forEach(function(movie) {
+        var li = document.createElement("li");
+        li.textContent = movie.title;
+        recommendationsList.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+</body>
+</html>
